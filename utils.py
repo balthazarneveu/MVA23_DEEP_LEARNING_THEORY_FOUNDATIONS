@@ -6,7 +6,7 @@ from IPython import display
 #@title Useful plot function 
 def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic', 
                            nsamples=100, posterior=None, tloc=(-4,-7), 
-                           nbh=2, cmap='RdBu', ax=None):    
+                           nbh=2, cmap='RdBu', ax=None, force_display=False):    
     """ Plot and show learning process in classification """
     if ax is None:
         _fig, ax = plt.subplots(figsize=(7,7))
@@ -59,8 +59,9 @@ def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
     ax.contour(xx, yy, Z, colors='k', linestyles=':', linewidths=0.7)
     ax.scatter(X[:,0], X[:,1], c=Y, cmap='Paired_r', edgecolors='k');
     ax.text(tloc[0], tloc[1], f'Epoch = {epoch+1}, Accuracy = {accuracy:.2%}', fontdict={'size': 12, 'fontweight': 'bold'})
-    display.display(plt.gcf())
-    display.clear_output(wait=True)
+    if force_display:
+        display.display(plt.gcf())
+        display.clear_output(wait=True)
 
 # Useful function: plot results for linear / polynomial / kernel regression
 def plot_results(X_train, y_train, X_test, y_test, y_pred, std_pred,
