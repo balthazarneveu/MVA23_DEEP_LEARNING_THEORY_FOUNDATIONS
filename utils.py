@@ -2,9 +2,24 @@ import matplotlib.pyplot as plt
 import torch
 import numpy as np
 from IPython import display
+from typing import List
+from pathlib import Path
+
+
+def save_animation(path_list: List[str], output_path: Path):
+    try:
+        from moviepy.editor import ImageSequenceClip
+    except Exception as exc:
+        print(f"{exc}\nCannot save GIF, use:\n!pip install moviepy")
+        return None
+    # Create clip from still debug images
+    clip = ImageSequenceClip(path_list, fps=10)
+    # Write a gif to disk
+    clip.write_gif(str(output_path))
+
+
 
 # @title Useful plot function
-
 
 def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
                            nsamples=100, posterior=None, tloc=(-4, -7),
