@@ -18,7 +18,6 @@ def save_animation(path_list: List[str], output_path: Path):
     clip.write_gif(str(output_path))
 
 
-
 # Useful plot function
 def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
                            nsamples=100, posterior=None, tloc=(-4, -7),
