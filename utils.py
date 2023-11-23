@@ -19,11 +19,11 @@ def save_animation(path_list: List[str], output_path: Path):
 
 
 
-# @title Useful plot function
-
+# Useful plot function
 def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
                            nsamples=100, posterior=None, tloc=(-4, -7),
-                           nbh=2, cmap='RdBu', ax=None, force_display=False):
+                           nbh=2, cmap='RdBu', ax=None, force_display=False,
+                           title='Classification Analysis'):
     """ Plot and show learning process in classification """
     if ax is None:
         _fig, ax = plt.subplots(figsize=(7, 7))
@@ -73,7 +73,7 @@ def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
     Z = pred.reshape(xx.shape).detach().numpy()
 
     plt.cla()
-    ax.set_title('Classification Analysis')
+    ax.set_title(title)
     ax.contourf(xx, yy, Z, cmap=cmap, alpha=0.25)
     ax.contour(xx, yy, Z, colors='k', linestyles=':', linewidths=0.7)
     ax.scatter(X[:, 0], X[:, 1], c=Y, cmap='Paired_r', edgecolors='k')
