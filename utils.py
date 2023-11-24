@@ -66,7 +66,7 @@ def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
             outputs = torch.zeros(nsamples, test_tensor.shape[0], 1)
             for i in range(nsamples):
                 outputs[i] = model(test_tensor)
-
+            print(f"AVERAGE OVER {nsamples} {outputs.shape}")
             pred = outputs.mean(0).squeeze()
 
     Z = pred.reshape(xx.shape).detach().numpy()
