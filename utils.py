@@ -81,7 +81,6 @@ def plot_decision_boundary(model, X, Y, epoch, accuracy, model_type='classic',
     if force_display:
         display.display(plt.gcf())
         display.clear_output(wait=True)
-
 # Useful function: plot results for linear / polynomial / kernel regression
 
 
