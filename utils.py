@@ -127,6 +127,7 @@ def plot_results(X_train, y_train, X_test, y_test, y_pred, std_pred,
                      std_pred*2, color='mistyrose')
     plt.fill_between(X_test, y_pred+std_pred*2, y_pred +
                      std_pred*3, color='mistyrose', label='3 std. int.')
+    plt.grid()
     plt.legend()
 
     plt.subplot(122)
